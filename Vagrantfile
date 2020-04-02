@@ -67,7 +67,16 @@ Vagrant.configure("2") do |config|
     sudo pacman -Syu
 
     sh /vagrant_data/install/tools.sh
-
-    sh /vagrant_data/configure/dotfiles.sh
   SHELL
+
+  # Copy dotfiles
+	config.vm.provision "file", source: "data/configure/bigqueryrc", destination: "~/.bigqueryrc"
+	config.vm.provision "file", source: "data/configure/editorconfig", destination: "~/.editorconfig"
+	config.vm.provision "file", source: "data/configure/gitconfig", destination: "~/.gitconfig"
+	config.vm.provision "file", source: "data/configure/npmrc", destination: "~/.npmrc"
+	config.vm.provision "file", source: "data/configure/sawsrc", destination: "~/.sawsrc"
+	config.vm.provision "file", source: "data/configure/taskrc", destination: "~/.taskrc"
+	config.vm.provision "file", source: "data/configure/tmux.conf", destination: "~/.tmux.conf"
+	config.vm.provision "file", source: "data/configure/vimrc", destination: "~/.vimrc"
+	config.vm.provision "file", source: "data/configure/zshrc", destination: "~/.zshrc"
 end
