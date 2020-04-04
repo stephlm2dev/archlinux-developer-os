@@ -30,9 +30,9 @@ set spelllang=fr,en " Spell languages
 filetype off
 
 " Store .swp in those directory and not in the directory of the edited file
-set backupdir=~/.vim/backup_files//
-set directory=~/.vim/swap_files//
-set undodir=~/.vim/undo_files//
+set backupdir=$HOME/.vim/backup_files//
+set directory=$HOME/.vim/swap_files//
+set undodir=$HOME/.vim/undo_files//
 
 " Set terminal to 256colors
 if !has('gui_running')
@@ -60,7 +60,7 @@ set omnifunc=syntaxcomplete#Complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
