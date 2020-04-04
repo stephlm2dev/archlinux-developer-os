@@ -26,6 +26,7 @@ echo "[$SCRIPT] Install minimal dev/bash packages" ; pacman -Sy --noconfirm --ne
   ranger \
   ripgrep \
   rlwrap \
+  screenfetch \
   taskd \
   tmux \
   vim \
@@ -52,4 +53,5 @@ echo "[$SCRIPT] Install specific dev packages" ; pacman -Sy --noconfirm --needed
 
 echo "[$SCRIPT] set zsh as default shell for $USER" ; chsh -s /bin/zsh
 echo "[$SCRIPT] set zsh as default shell for vagrant" ; chsh -s /bin/zsh vagrant
+echo "[$SCRIPT] set screenfetch at shell login" ; echo 'screenfetch' | sudo tee -a /etc/profile | sudo tee -a /etc/bash.bashrc
 echo "[$SCRIPT] clean packages" ; pacman -Sc --noconfirm
