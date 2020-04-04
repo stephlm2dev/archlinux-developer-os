@@ -43,7 +43,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "./data", "/vagrant_data"
+  config.vm.synced_folder "/Users/stephlm2dev/Documents/Github/", "/shared"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -63,20 +63,17 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-    sudo pacman -Syu
-
-    sh /vagrant_data/install/tools.sh
-  SHELL
+  config.vm.provision "shell", path: "data/configure/system.sh", name: "system.sh", privileged: true
+  config.vm.provision "shell", path: "data/configure/tools.sh", name: "tools.sh", privileged: false
 
   # Copy dotfiles
-	config.vm.provision "file", source: "data/configure/bigqueryrc", destination: "~/.bigqueryrc"
-	config.vm.provision "file", source: "data/configure/editorconfig", destination: "~/.editorconfig"
-	config.vm.provision "file", source: "data/configure/gitconfig", destination: "~/.gitconfig"
-	config.vm.provision "file", source: "data/configure/npmrc", destination: "~/.npmrc"
-	config.vm.provision "file", source: "data/configure/sawsrc", destination: "~/.sawsrc"
-	config.vm.provision "file", source: "data/configure/taskrc", destination: "~/.taskrc"
-	config.vm.provision "file", source: "data/configure/tmux.conf", destination: "~/.tmux.conf"
-	config.vm.provision "file", source: "data/configure/vimrc", destination: "~/.vimrc"
-	config.vm.provision "file", source: "data/configure/zshrc", destination: "~/.zshrc"
+  config.vm.provision "file", source: "data/dotfiles/bigqueryrc", destination: "~/.bigqueryrc"
+  config.vm.provision "file", source: "data/dotfiles/editorconfig", destination: "~/.editorconfig"
+  config.vm.provision "file", source: "data/dotfiles/gitconfig", destination: "~/.gitconfig"
+  config.vm.provision "file", source: "data/dotfiles/npmrc", destination: "~/.npmrc"
+  config.vm.provision "file", source: "data/dotfiles/sawsrc", destination: "~/.sawsrc"
+  config.vm.provision "file", source: "data/dotfiles/taskrc", destination: "~/.taskrc"
+  config.vm.provision "file", source: "data/dotfiles/tmux.conf", destination: "~/.tmux.conf"
+  config.vm.provision "file", source: "data/dotfiles/vimrc", destination: "~/.vimrc"
+  config.vm.provision "file", source: "data/dotfiles/zshrc", destination: "~/.zshrc"
 end
