@@ -5,7 +5,6 @@
 	smudge = git-lfs smudge -- %f
 [user]
 	name = Schmidely Stéphane
-	email = s.schmidely@gmail.com
 [github]
 	user = stephlm2dev
 [alias]
