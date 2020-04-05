@@ -64,9 +64,6 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", path: "data/configure/system.sh", name: "system.sh", privileged: true
-  config.vm.provision "shell", path: "data/configure/versions_manager.sh", name: "versions_manager", privileged: false
-  config.vm.provision "shell", path: "data/configure/tools.sh", name: "tools.sh", privileged: false
 
   # Copy dotfiles
   config.vm.provision "file", source: "data/dotfiles/bigqueryrc", destination: "~/.bigqueryrc"
@@ -78,4 +75,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "data/dotfiles/tmux.conf", destination: "~/.tmux.conf"
   config.vm.provision "file", source: "data/dotfiles/vimrc", destination: "~/.vimrc"
   config.vm.provision "file", source: "data/dotfiles/zshrc", destination: "~/.zshrc"
+
+  # Configure Archlinux
+  config.vm.provision "shell", path: "data/configure/pacman.sh", name: "system.sh", privileged: true
+  config.vm.provision "shell", path: "data/configure/root.sh", name: "root.sh", privileged: true
+  config.vm.provision "shell", path: "data/configure/yay.sh", name: "yay.sh", privileged: false
+  config.vm.provision "shell", path: "data/configure/terminal.sh", name: "terminal.sh", privileged: false
+  config.vm.provision "shell", path: "data/configure/versions_manager.sh", name: "versions_manager.sh", privileged: false
 end

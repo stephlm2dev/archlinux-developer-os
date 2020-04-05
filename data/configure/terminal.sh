@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT='tools.sh'
+SCRIPT='terminal.sh'
 
 echo "[$SCRIPT] executed as $USER"
 
@@ -29,3 +29,5 @@ echo "[$SCRIPT] Install Vundle" ; \
   git clone https://github.com/VundleVim/Vundle.vim.git "$VIM_DIR"/bundle/Vundle.vim
 echo "[$SCRIPT] Install Vim plugins" ; \
   vim +PluginInstall +qall
+
+
