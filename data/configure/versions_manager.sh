@@ -12,11 +12,9 @@ echo "[$SCRIPT] install RVM" ; \
   rvm notes ; \
   rvm requirements
 
-# TODO un-comment me !
 echo "[$SCRIPT] install ruby latest version" ; \
   echo "rvm install ruby --latest"
 
-# FIXME source issue ?
 echo "[$SCRIPT] install nvm" ; \
   rm -fr "$HOME"/.nvm ; \
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash ; \
@@ -40,4 +38,4 @@ echo "[$SCRIPT] install most common python versions" ; \
   pyenv install "$PYTHON_27" ; \
   PYHTON_3=$(pyenv install --list | sed 's/^  //' | grep '^2\.[0-9]*\.[0-9]*$' | tail -n1) ; \
   pyenv install "$PYHTON_3" ; \
-  pyenv globla "$PYHTON_3"
+  pyenv global "$PYHTON_3"

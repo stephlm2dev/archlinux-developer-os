@@ -82,4 +82,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "data/configure/yay.sh", name: "yay.sh", privileged: false
   config.vm.provision "shell", path: "data/configure/versions_manager.sh", name: "versions_manager.sh", privileged: false
   config.vm.provision "shell", path: "data/configure/terminal.sh", name: "terminal.sh", privileged: false
+
+  # Ready to use !
+  config.vm.provision "shell", inline: "Archlinux is ready to use \n Type 'vagrant ssh' to connect it and enjoy !"
 end
