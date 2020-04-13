@@ -15,11 +15,11 @@ echo "[$SCRIPT] install users packages" ; \
     gitflow-avh \
     git-hooks-git \
     heroku-cli \
-    mpv-build-git \
     mysql \
     pgcli \
     rsyslog \
     source-highlight \
     tasksh \
-    timew-git \
     tmux-mem-cpu-load-git
+# timew-git \
+

@@ -80,6 +80,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "data/configure/pacman.sh", name: "system.sh", privileged: true
   config.vm.provision "shell", path: "data/configure/root.sh", name: "root.sh", privileged: true
   config.vm.provision "shell", path: "data/configure/yay.sh", name: "yay.sh", privileged: false
-  config.vm.provision "shell", path: "data/configure/terminal.sh", name: "terminal.sh", privileged: false
   config.vm.provision "shell", path: "data/configure/versions_manager.sh", name: "versions_manager.sh", privileged: false
+  config.vm.provision "shell", path: "data/configure/terminal.sh", name: "terminal.sh", privileged: false
 end

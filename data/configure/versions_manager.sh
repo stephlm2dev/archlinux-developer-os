@@ -16,6 +16,7 @@ echo "[$SCRIPT] install RVM" ; \
 echo "[$SCRIPT] install ruby latest version" ; \
   echo "rvm install ruby --latest"
 
+# FIXME source issue ?
 echo "[$SCRIPT] install nvm" ; \
   rm -fr "$HOME"/.nvm ; \
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash ; \
