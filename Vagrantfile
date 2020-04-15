@@ -65,7 +65,7 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
 
-  # Copy dotfiles
+  # Copy root dotfiles
   config.vm.provision "file", source: "data/dotfiles/bigqueryrc", destination: "~/.bigqueryrc"
   config.vm.provision "file", source: "data/dotfiles/editorconfig", destination: "~/.editorconfig"
   config.vm.provision "file", source: "data/dotfiles/gitconfig", destination: "~/.gitconfig"
@@ -82,6 +82,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "data/configure/yay.sh", name: "yay.sh", privileged: false
   config.vm.provision "shell", path: "data/configure/versions_manager.sh", name: "versions_manager.sh", privileged: false
   config.vm.provision "shell", path: "data/configure/terminal.sh", name: "terminal.sh", privileged: false
+
+  # Copy last dotfiles
+  config.vm.provision "file", source: "data/dotfiles/tmux_resurrect_20200415T091646.txt", destination: "~/.tmux/ressurect/tmux_resurrect_20200415T091646.txt"
 
   # Ready to use !
   config.vm.provision "shell", inline: "Archlinux is ready to use \n Type 'vagrant ssh' to connect it and enjoy !"

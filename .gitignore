@@ -11,3 +11,6 @@
 ### OSX ###
 # General
 .DS_Store
+
+# Custom from repo
+data/dotfiles/tmux_resurrect_*.txt

@@ -4,13 +4,20 @@ SCRIPT='terminal.sh'
 
 echo "[$SCRIPT] executed as $USER"
 
+# Tmux
+TMUX_DIR="$HOME/.tmux"
+echo "[$SCRIPT] Install Tmux plugins manager" ; \
+  git clone https://github.com/tmux-plugins/tpm "$TMUX_DIR"/plugins/tpm ; \
+  mkdir "$TMUX_DIR/resurrect/"
+
 # Oh My ZSH
 ZSH_DIR="$HOME/.oh-my-zsh"
 ZSH_PLUGINS_DIR="${ZSH_CUSTOM:-$ZSH_DIR/custom/plugins}"
 echo "[$SCRIPT] Install Oh My ZSH" ; \
   rm -fr "$ZSH_DIR" ; \
   curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh ; \
-  sh install.sh --keep-zshrc
+  sh install.sh --keep-zshrc ; \
+  rm -fr install.sh
 
 echo "[$SCRIPT] Zsh plugin: zsh-nvm" ; \
   git clone https://github.com/lukechilds/zsh-nvm "$ZSH_PLUGINS_DIR"/zsh-nvm
