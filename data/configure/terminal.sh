@@ -7,7 +7,9 @@ echo "[$SCRIPT] executed as $USER"
 # Tmux
 TMUX_DIR="$HOME/.tmux"
 echo "[$SCRIPT] Install Tmux plugins manager" ; \
-  git clone https://github.com/tmux-plugins/tpm "$TMUX_DIR"/plugins/tpm ; \
+  git clone https://github.com/tmux-plugins/tpm "$TMUX_DIR"/plugins/tpm
+
+echo "[$SCRIPT] tmux plugin: tmux-resurrect" ; \
   mkdir "$TMUX_DIR/resurrect/"
 
 # Oh My ZSH

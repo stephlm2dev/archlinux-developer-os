@@ -13,4 +13,4 @@
 .DS_Store
 
 # Custom from repo
-data/dotfiles/tmux_resurrect_*.txt
+data/dotfiles/tmux_resurrect.txt

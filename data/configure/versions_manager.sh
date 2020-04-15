@@ -13,7 +13,7 @@ echo "[$SCRIPT] install RVM" ; \
   rvm requirements
 
 echo "[$SCRIPT] install ruby latest version" ; \
-  echo "rvm install ruby --latest"
+  rvm install ruby --latest
 
 echo "[$SCRIPT] install nvm" ; \
   rm -fr "$HOME"/.nvm ; \

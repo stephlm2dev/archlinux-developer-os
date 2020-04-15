@@ -84,8 +84,17 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "data/configure/terminal.sh", name: "terminal.sh", privileged: false
 
   # Copy last dotfiles
-  config.vm.provision "file", source: "data/dotfiles/tmux_resurrect_20200415T091646.txt", destination: "~/.tmux/ressurect/tmux_resurrect_20200415T091646.txt"
+  config.vm.provision "file", source: "data/dotfiles/tmux_resurrect.txt", destination: "~/.tmux/ressurect/tmux_resurrect.txt"
 
-  # Ready to use !
-  config.vm.provision "shell", inline: "Archlinux is ready to use \n Type 'vagrant ssh' to connect it and enjoy !"
+  # Almost ready to use !
+	$ready = <<-SCRIPT
+	cd "$TMUX_DIR/resurrect/" ; \
+  ln -s tmux_resurrect.txt last ; \
+	cd
+
+	echo "Archlinux is ready to use !"
+	echo "Type 'vagrant ssh' to connect it and enjoy !"
+	SCRIPT
+
+	config.vm.provision "shell", inline: $ready
 end
